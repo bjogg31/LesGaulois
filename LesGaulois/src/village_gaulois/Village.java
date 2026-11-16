@@ -10,7 +10,7 @@ public class Village {
 
 	public Village(String nom, int NB_VILLAGEOIS_MAX, Gaulois chef) {
 		this.nom = nom;
-		this.villageois = new Gaulois[NB_VILLAGEOIS_MAX];
+		villageois = new Gaulois[NB_VILLAGEOIS_MAX];
 		this.chef = chef;
 		this.chef.setVillage(this);
 	}
@@ -32,7 +32,7 @@ public class Village {
 	}
 
 	public Gaulois trouverVillageois(int numVillageois) {
-		if (numVillageois > 0 && numVillageois <= nbVillageois) {
+		if (numVillageois > 0 && numVillageois < nbVillageois + 1) {
 			return villageois[numVillageois - 1];
 		} else {
 			System.out.println("Il n'y a pas autant d'habitants dans notre village !");

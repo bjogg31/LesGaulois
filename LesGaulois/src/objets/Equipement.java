@@ -10,10 +10,6 @@ public enum Equipement {
 	}
 
 	public String toString() {
-		return super.toString();
-	}
-
-	public String getNom() {
 		return nom;
 	}
 
