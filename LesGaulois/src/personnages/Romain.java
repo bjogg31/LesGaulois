@@ -104,11 +104,11 @@ public class Romain {
 	}
 
 	private int calculerResistanceEquipement(int forceCoup) {
-		String texte = "Ma force est de " + this.force + ", et la force du coup est de " + forceCoup;
+		StringBuilder texte = new StringBuilder("Ma force est de " + this.force + ", et la force du coup est de " + forceCoup);
 		int resistanceEquipement = 0;
 
 		if (nbEquipement != 0) {
-			texte += "\nMais heureusement, grace à mon équipement sa force est ";
+			texte.append("\nMais heureusement, grace à mon équipement sa force est ");
 			for (int i = 0; i < nbEquipement; i++) {
 				if (equipements[i] != null && equipements[i].equals(Equipement.BOUCLIER)) {
 					resistanceEquipement += 6;
@@ -117,14 +117,16 @@ public class Romain {
 				}
 			}
 			if (resistanceEquipement >= forceCoup) {
-				texte += "complètement absorbée.";
+				texte.append("complètement absorbée.");
 				forceCoup = 0;
 			} else {
-				texte += "diminuée de " + resistanceEquipement + "!";
+				texte.append("diminuée de ");
+				texte.append(resistanceEquipement);
+				texte.append("!");
 				forceCoup -= resistanceEquipement;
 			}
 		}
-		parler(texte);
+		parler(texte.toString());
 		return forceCoup;
 	}
 

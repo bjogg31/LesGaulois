@@ -86,14 +86,15 @@ public class Gaulois {
 
 	public void faireUneDonnation(Musee musee) {
 		if (nbTrophees > 0) {
-			String texte = "Je donne au musee tous mes trophees :";
+			StringBuilder texte = new StringBuilder("Je donne au musee tous mes trophees :") ;
 			for (int i = 0; i < nbTrophees; i++) {
-				texte += "\n - " + trophees[i].toString();
+				texte.append("\n - ");
+				texte.append(trophees[i].toString());
 				musee.donnerTrophees(this, trophees[i]);
 				trophees[i] = null;
 			}
 			nbTrophees = 0;
-			parler(texte);
+			parler(texte.toString());
 		}
 	}
 }

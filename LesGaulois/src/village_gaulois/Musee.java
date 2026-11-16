@@ -16,15 +16,19 @@ public class Musee {
 	}
 
 	public String extraireInstructionsOCaml() {
-		String texte = "let musee = [\n";
+		StringBuilder texte = new StringBuilder("let musee = [\n");
 		for (int i = 0; i < nbTrophee; i++) {
-			texte += "\t\"" + trophees[i].donnerNom() + "\", \"" + trophees[i].getEquipement().toString() + "\"";
+			texte.append("\t\"");
+			texte.append(trophees[i].donnerNom());
+			texte.append("\", \"");
+			texte.append(trophees[i].getEquipement().toString());
+			texte.append("\"");
 			if (i < nbTrophee - 1) {
-				texte += ";";
+				texte.append(";");
 			}
-			texte += "\n";
+			texte.append("\n") ;
 		}
-		texte += "]";
-		return texte;
+		texte.append("]");
+		return texte.toString();
 	}
 }
